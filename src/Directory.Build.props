@@ -12,7 +12,7 @@
     <CrossGenSymbolExtension>.map</CrossGenSymbolExtension>
     <CrossGenSymbolExtension Condition="'$(OSGroup)' == 'Windows_NT'">.ni.pdb</CrossGenSymbolExtension>
     <!-- OSX doesn't have crossgen symbols, yet -->
-    <CrossGenSymbolExtension Condition="'$(OSGroup)' == 'OSX'"></CrossGenSymbolExtension>
+    <CrossGenSymbolExtension Condition="'$(OSGroup)' == 'OSX' OR '$(OSGroup)' == 'FreeBSD'"></CrossGenSymbolExtension>
   </PropertyGroup>
 
 </Project>

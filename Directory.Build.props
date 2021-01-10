@@ -224,8 +224,6 @@
 
   <PropertyGroup>
     <DisableCrossgen>false</DisableCrossgen>
-    <!-- Disable cross-gen on FreeBSD for now. This can be revisited when we have full support. -->
-    <DisableCrossgen Condition="'$(OSGroup)'=='FreeBSD'">true</DisableCrossgen>
     <OutputVersionBadge>$(AssetOutputPath)sharedfx_$(OutputRid)_$(ConfigurationGroup)_version_badge.svg</OutputVersionBadge>
   </PropertyGroup>
 
@@ -270,6 +268,7 @@
     <TargetsCentos>false</TargetsCentos>
     <TargetsOracle>false</TargetsOracle>
     <TargetsSles>false</TargetsSles>
+    <TargetsFreeBSD>false</TargetsFreeBSD>
   </PropertyGroup>
   <Choose>
     <When Condition="$(OutputRid.StartsWith('win'))">
@@ -343,6 +342,12 @@
       <PropertyGroup>
         <TargetsSles>true</TargetsSles>
         <TargetsLinux>true</TargetsLinux>
+        <TargetsUnix>true</TargetsUnix>
+      </PropertyGroup>
+    </When>
+    <When Condition="$(OutputRid.StartsWith('freebsd'))">
+      <PropertyGroup>
+        <TargetsFreeBSD>true</TargetsFreeBSD>
         <TargetsUnix>true</TargetsUnix>
       </PropertyGroup>
     </When>
