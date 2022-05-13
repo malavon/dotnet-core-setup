@@ -267,4 +267,4 @@ fi
 popd
 
 set +x # turn off trace
-cmake --build $__intermediateOutputPath --target install --config $__configuration
+cmake --build $__intermediateOutputPath --target install --config $__configuration -- -j4
